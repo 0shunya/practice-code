@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript DOM Fun Examples</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    h1, h2 {
+      margin: 20px 0;
+    }
+    button {
+      margin: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .highlight {
+      color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript DOM Fun Examples</h1>
+
+  <!-- Accessing DOM Elements -->
+  <h2>Accessing DOM Elements</h2>
+  <p id="myParagraph">This is a paragraph. Click the button to change me!</p>
+  <button id="BTNChangeText">Change Text</button>
+
+  <!-- Traversing the DOM -->
+  <h2>Traversing the DOM</h2>
+  <ul id="cities">
+    <li>New York</li>
+    <li>Tokyo</li>
+    <li>Paris</li>
+    <li>London</li>
+  </ul>
+  <button id="HGLFirstCity">Highlight First City</button>
+
+  <!-- Manipulating DOM Elements -->
+   <section id="example-3"></section>
+  <h2>Manipulating DOM Elements</h2>
+  <div id="Coffeorder">Order: <span id="CoffeeType" >Latte</span> </div>
+  <button id="BTNChangeCoffee">Change Order to Espresso</button>
+
+  <!-- Creating and Inserting Elements -->
+  <h2>Creating and Inserting Elements</h2>
+  <button id="BTNShopList">Add a New Item to the Shopping List</button>
+  <ul id="shoppingList">
+    <li>Bread</li>
+    <li>Milk</li>
+  </ul>
+
+  <!-- Removing DOM Elements -->
+  <h2>Removing DOM Elements</h2>
+  <ul id="tasks">
+    <li>Task 1</li>
+    <li>Task 2</li>
+    <li>Task 3</li>
+  </ul>
+  <button id="BTNRemove">Remove Last Task</button>
+
+
+   <!-- Event Handling -->
+  <h2>Event Handling in the DOM</h2>
+  <button id="BTNClickMe">Click Me!</button>
+
+  <!-- Event Delegation -->
+  <h2>Event Delegation</h2>
+  <ul id="teaList">
+    <li>Green Tea</li>
+    <li>Black Tea</li>
+    <li>Oolong Tea</li>
+  </ul>
+  <p>Click on any tea to select it!</p>
+
+  <!-- Form Handling -->
+  <h2>Form Handling</h2>
+  <form id="feedbackForm">
+    <label for="feedback">Feedback:</label>
+    <input type="text" id="feedback" placeholder="Enter feedback">
+    <button type="submit">Submit Feedback</button>
+  </form>
+  <p id="feedbackOutput"></p>
+
+  <!-- DOM Content Loaded -->
+  <h2>DOM Content Loaded</h2>
+  <p id="domStatus">Waiting for DOM to load...</p>
+  <script src="Script.js" ></script>
+</body>
+</html>
