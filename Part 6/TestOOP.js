@@ -22,8 +22,8 @@ Dog.prototype.bark = function() {
 
 // Demonstration
 const myDog = new Dog();
-console.log(myDog.speak()); // 'Animal speaking'
-console.log(myDog.bark());  // 'Woof!'
+// console.log(myDog.speak()); // 'Animal speaking'
+// console.log(myDog.bark());  // 'Woof!'
 
 
 function Person(name, age) {
@@ -85,6 +85,46 @@ class BankAccount {
 
 const account = new BankAccount(2000);
 
-console.log("Initial balance:", account.balance);
-console.log("After depositing 500:", account.deposit(500));
-console.log("After depositing 500:", account.withdraw(1000));
+// console.log("Initial balance:", account.balance);
+// console.log("After depositing 500:", account.deposit(500));
+// console.log("After depositing 500:", account.withdraw(1000));
+
+//Task 2
+class Shape {
+  area() {
+    return 0;
+  }
+
+}
+
+class Circle extends Shape {
+
+  constructor(radius){
+    super();
+    this.radius = radius;
+  }
+   area() {
+     return Math.PI * this.radius * this.radius;
+  }
+
+}
+
+class Rectangle extends Shape {
+
+  constructor(width, height) {
+    super();
+    this.width = width;
+    this.height = height;
+  }
+
+  area() {
+    return this.width * this.height;
+  }
+}
+
+
+const circle = new Circle(5);
+const rect = new Rectangle(2,5);
+
+console.log("Circle area", circle.area());
+console.log("Rectangle area", rect.area());
