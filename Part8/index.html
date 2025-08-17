@@ -25,6 +25,10 @@
       color: yellow;
       font-weight: bold;
     }
+
+    .teaitem {
+        cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -77,15 +81,15 @@
   <!-- Event Delegation -->
   <h2>Event Delegation</h2>
   <ul id="teaList">
-    <li>Green Tea</li>
-    <li>Black Tea</li>
-    <li>Oolong Tea</li>
+    <li class="teaitem" >Green Tea</li>
+    <li class="teaitem" >Black Tea</li>
+    <li  class="teaitem" >Oolong Tea</li>
   </ul>
   <p>Click on any tea to select it!</p>
 
   <!-- Form Handling -->
   <h2>Form Handling</h2>
-  <form id="feedbackForm">
+  <form action="Submit" id="feedbackForm">
     <label for="feedback">Feedback:</label>
     <input type="text" id="feedback" placeholder="Enter feedback">
     <button type="submit">Submit Feedback</button>
@@ -95,6 +99,16 @@
   <!-- DOM Content Loaded -->
   <h2>DOM Content Loaded</h2>
   <p id="domStatus">Waiting for DOM to load...</p>
+
+
+  <!-- Example 10: CSS Classes Manipulation -->
+<section id="example-10">
+  <h2>CSS Classes Manipulation</h2>
+  <p id="descriptionText">This text will change color!</p>
+  <button id="toggleHighlight">Toggle Highlight</button>
+</section>
+
+
   <script src="Script.js" ></script>
 </body>
 </html>

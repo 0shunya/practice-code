@@ -5,7 +5,7 @@
 
 // console.log(this);
 
-console.log(document.getElementById("BTNShopList"))
+// console.log(document.getElementById("BTNShopList"))
 
 //Points at the personal element
 document.getElementById("BTNChangeText").
@@ -67,9 +67,54 @@ addEventListener('click', function () {
 
 document.getElementById("BTNRemove").
 addEventListener('click', function () {
-
     let RemoveItem = document.getElementById('tasks')
-     
     // RemoveItem.firstElementChild.remove();
     RemoveItem.lastElementChild.remove();
+})
+
+document.getElementById("BTNClickMe").
+addEventListener('click', function () {
+    alert("I was clicked")
+})
+
+
+
+document.getElementById("teaList").
+addEventListener('click', function (event) {
+    if(event.target && event.target.matches(".teaitem")){
+        alert("you have selected " + event.target.textContent)
+    }
+})
+
+document.getElementById("feedbackForm")
+.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let fb = document.getElementById("feedback").value;
+    console.log(fb);
+    // let fb1 = document.getElementById("feedback");
+    // console.log(fb1);
+   let chngtt =  document.getElementById("feedbackOutput")
+
+//    chngtt.textContent = `The text entered is ${fb}`;
+
+//    chngtt.style.color = 'Red';
+//    chngtt.style.fontSize = '24px';
+
+chngtt.textContent = "The text entered is ";
+
+// create a span for fb
+let fbSpan = document.createElement("span");
+fbSpan.textContent = fb;
+fbSpan.style.color = "red";
+fbSpan.style.fontSize = "24px";
+
+// append span after the text
+chngtt.appendChild(fbSpan);
+})
+
+//Example 9
+document.addEventListener('DOMContentLoaded', function () {
+    // alert("See it")
+    document.getElementById('domStatus').textContent =
+    "DOM is FULLY LOADED"
 })
