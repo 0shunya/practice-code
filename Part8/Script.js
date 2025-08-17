@@ -118,3 +118,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('domStatus').textContent =
     "DOM is FULLY LOADED"
 })
+
+
+//Example 10 
+
+document.getElementById("toggleHighlight")
+        .addEventListener("click", function () {
+   let DT = document.getElementById("descriptionText");
+   console.log(DT);
+   
+
+   DT.classList.toggle("highlight");
+} )
