@@ -21,7 +21,7 @@ async function fetchAllData() {
   console.log(posts);
 }
 
-fetchAllData();
+// fetchAllData();
 
 
 // Task 2
@@ -51,4 +51,33 @@ async function handlePromises() {
   }
 }
 
-handlePromises();
+// handlePromises();
+
+
+async function fetchWithTimeout(promise, timeout) {
+  // Create a timeout promise that rejects/resolves after timeout duration
+  const timeoutPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Timeout exceeded");
+    }, timeout);
+  });
+
+  // Use Promise.race to race between the input promise and timeoutPromise
+  const result = await Promise.race([promise, timeoutPromise]);
+  return result;
+}
+
+// Example usage:
+const fetchPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Data fetched successfully");
+  }, 1000);
+});
+
+(async () => {
+  const result1 = await fetchWithTimeout(fetchPromise, 1500); // Resolves in time
+  console.log(result1); // Data fetched successfully
+
+  const result2 = await fetchWithTimeout(fetchPromise, 500); // Timeout exceeded
+  console.log(result2); // Timeout exceeded
+})();
