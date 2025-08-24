@@ -7,10 +7,10 @@ const Test = {
     }
 }
 
-Test.greet();
+Test.greet(); //When called here 'this' gives us the context.
 
-const AnotherVar = Test.greet;
-AnotherVar();
+// const AnotherVar = Test.greet; //Here the context is not given
+// AnotherVar();
 
-const AnotherVar2 = Test.greet.bind({name: "Aaru"});
+const AnotherVar2 = Test.greet.bind({name: "Aaru"}); //Here we make sure to bind the context
 AnotherVar2()
