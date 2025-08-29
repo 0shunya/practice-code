@@ -51,6 +51,33 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+ 
+.del {
+  background-color: crimson;   /* red button */
+  color: white;               /* white text */
+  border: none;               /* remove default border */
+  padding: 5px 10px;          /* space inside button */
+  border-radius: 5px;         /* rounded corners */
+  cursor: pointer;            /* hand pointer on hover */
+  font-size: 14px;            
+  transition: 0.3s ease;      /* smooth hover effect */
+}
+
+#del:hover {
+  background-color: darkred;  /* darker red when hovered */
+}
+
+
+
+.del button {
+  background-color: #6200ea;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
 .product button:hover {
   background-color: #3700b3;
