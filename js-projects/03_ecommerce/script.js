@@ -31,8 +31,7 @@ products.forEach(product => {
 
 productList.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
-    // console.log("CLicked");
-    
+  
     const productId = parseInt(e.target.getAttribute("data-id"));
     const product = products.find(p => p.id === productId);
     
@@ -66,7 +65,10 @@ function renderCart(){
 
         delBtn.onclick = () => {
         cart.splice(index, 1);
-        renderCart(); // re-render cart        
+        renderCart(); // re-render cart 
+        if(cart.length == 0) {
+          cartTotal.classList.add('hidden')
+        }       
       }
     })
   } else {
