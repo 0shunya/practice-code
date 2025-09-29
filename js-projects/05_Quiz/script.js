@@ -31,57 +31,90 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  let currentQuestionIndex = 0;
+  let currentQuestion = 0;
   let score = 0;
 
-  startBtn.addEventListener("click", startQuiz);
+  startBtn.addEventListener('click', () => {
+    startBtn.classList.add('hidden')
+    // restartBtn.classList.add('hidden')
+    nextBtn.classList.add('hidden')
 
-  nextBtn.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      showQuestion();
-    } else {
-      showResult();
+    questionContainer.classList.remove('hidden')
+    questionText.classList.remove('hidden')
+    choicesList.classList.remove('hidden')
+
+    // scoreDisplay.classList.add('hidden')
+    // resultContainer.classList.add('hidden')
+
+    renderQuestion();
+  })
+
+  function renderQuestion() {
+    
+    questionContainer.classList.remove('hidden')
+    questionText.classList.remove('hidden')
+    choicesList.classList.remove('hidden')
+
+    const questDiv = document.createElement('div')
+
+    questionText.textContent = questions[currentQuestion].question
+    choicesList.innerHTML = "";
+    questions[currentQuestion].choices.forEach(choice => {
+    const li = document.createElement("li")
+    li.textContent = choice
+    console.log(typeof li.textContent);
+    li.addEventListener("click", (e) => {
+      
+      if(choice === questions[currentQuestion].answer) {
+        e.target.style.backgroundColor = "green";
+      }
+      else {
+        e.target.style.backgroundColor = "red";
+      }
+      choicesList.querySelectorAll('li').forEach(li => li.style.pointerEvents = "none")
+    })    
+    
+    li.addEventListener("click", () => selectAns(choice))
+    choicesList.appendChild(li);
+    })
+
+    // questionContainer.appendChild(questDiv)
+
+    console.log(questDiv);
+  }
+
+  function selectAns(choice) {
+    const ans = questions[currentQuestion].answer
+    if(choice === ans) {
+        score++;
     }
-  });
+    nextBtn.classList.remove('hidden')
+  }
 
-  restartBtn.addEventListener("click", () => {
-    currentQuestionIndex = 0;
+  nextBtn.onclick = () => {
+     currentQuestion++;
+    if(questions.length > currentQuestion){
+       renderQuestion()
+    }
+    else {
+      renderResult()
+    }
+  }
+
+  function renderResult() {
+    questionContainer.classList.add('hidden')
+    resultContainer.classList.remove('hidden')
+
+    scoreDisplay.textContent = `${score} out of ${questions.length}`
+    console.log("visible");
+    
+  }
+
+  restartBtn.onclick = () => {
     score = 0;
-    resultContainer.classList.add("hidden");
-    startQuiz();
-  });
-
-  function startQuiz() {
-    startBtn.classList.add("hidden");
-    resultContainer.classList.add("hidden");
-    questionContainer.classList.remove("hidden");
-    showQuestion();
+  currentQuestion = 0;
+  nextBtn.classList.add("hidden"); // hide next button
+  location.reload();
   }
-
-  function showQuestion() {
-    nextBtn.classList.add("hidden");
-    questionText.textContent = questions[currentQuestionIndex].question;
-    choicesList.innerHTML = ""; //clear previous choices
-    questions[currentQuestionIndex].choices.forEach((choice) => {
-      const li = document.createElement("li");
-      li.textContent = choice;
-      li.addEventListener("click", () => selectAnswer(choice));
-      choicesList.appendChild(li);
-    });
-  }
-
-  function selectAnswer(choice) {
-    const correctAnswer = questions[currentQuestionIndex].answer;
-    if (choice === correctAnswer) {
-      score++;
-    }
-    nextBtn.classList.remove("hidden");
-  }
-
-  function showResult() {
-    questionContainer.classList.add("hidden");
-    resultContainer.classList.remove("hidden");
-    scoreDisplay.textContent = `${score} out of ${questions.length}`;
-  }
+  
 });
